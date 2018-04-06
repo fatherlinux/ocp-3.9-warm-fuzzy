@@ -1,0 +1,38 @@
+[OSEv3:children]
+nodes
+nfs
+masters
+lb
+etcd
+
+[OSEv3:vars]
+ansible_ssh_user=root
+openshift_hostname_check=false
+openshift_master_cluster_hostname=allura.dc3.crunchtools.com
+openshift_master_cluster_public_hostname=allura.dc3.crunchtools.com
+deployment_type=openshift-enterprise
+openshift_disable_check=disk_availability,memory_availability,package_version,docker_storage
+
+[nodes]
+coran.dc3.crunchtools.com openshift_schedulable=True openshift_ip=192.168.124.2 openshift_node_labels="{'region': 'infra'}"
+hunk.dc3.crunchtools.com openshift_schedulable=True openshift_ip=192.168.124.3 openshift_node_labels="{'region': 'infra'}"
+pidge.dc3.crunchtools.com openshift_schedulable=True openshift_ip=192.168.124.4 openshift_node_labels="{'region': 'infra'}"
+sven.dc3.crunchtools.com openshift_schedulable=True openshift_ip=192.168.124.5
+yurak.dc3.crunchtools.com openshift_schedulable=True openshift_ip=192.168.124.6
+zarkon.dc3.crunchtools.com openshift_schedulable=True openshift_ip=192.168.124.7
+
+[nfs]
+allura.dc3.crunchtools.com openshift_ip=192.168.124.1
+
+[masters]
+coran.dc3.crunchtools.com openshift_ip=192.168.124.2
+hunk.dc3.crunchtools.com openshift_ip=192.168.124.3
+pidge.dc3.crunchtools.com openshift_ip=192.168.124.4
+
+[lb]
+allura.dc3.crunchtools.com openshift_ip=192.168.124.1
+
+[etcd]
+coran.dc3.crunchtools.com openshift_ip=192.168.124.2
+hunk.dc3.crunchtools.com openshift_ip=192.168.124.3
+pidge.dc3.crunchtools.com openshift_ip=192.168.124.4
